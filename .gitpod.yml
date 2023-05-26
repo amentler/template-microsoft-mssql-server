@@ -17,7 +17,8 @@ tasks:
       sudo apt install unixodbc-dev -y
       sudo Rscript -e 'install.packages("RODBC")'
       pip install jupyterlab
-      docker-compose up &
+      docker-compose up -d
+
 ports:
   - port: 1433
     onOpen: ignore
