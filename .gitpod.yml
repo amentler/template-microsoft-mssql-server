@@ -15,7 +15,7 @@ tasks:
       sudo apt update
       sudo apt install --no-install-recommends r-base -y
       sudo apt install unixodbc-dev -y
-      sudo Rscript -e 'install.packages("rodbc")'
+      sudo Rscript -e 'install.packages("RODBC")'
       docker-compose up &
 ports:
   - port: 1433
