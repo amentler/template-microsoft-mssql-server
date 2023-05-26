@@ -6,7 +6,7 @@ This is a [Microsoft SQL Server](https://hub.docker.com/_/microsoft-mssql-server
 
 Click the button below to start a new development environment:
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gitpod-io/template-microsoft-mssql-server)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/amentler/template-microsoft-mssql-server)
 
 ## Get Started With Your Own Project
 
