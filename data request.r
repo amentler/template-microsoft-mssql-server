@@ -1,0 +1,5 @@
+library("RODBC")
+dbconnection <- odbcDriverConnect("DRIVER={ODBC Driver 18 for SQL Server};SERVER=localhost;DATABASE=master;ENCRYPT=yes;UID=sa;PWD=TeSt1234;TrustServerCertificate=yes;")
+initdata <- sqlQuery(dbconnection,paste("SELECT name FROM sys.databases"))
+print(initdata)
+odbcClose(dbconnection)

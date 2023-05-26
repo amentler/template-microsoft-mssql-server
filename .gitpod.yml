@@ -14,6 +14,8 @@ tasks:
       echo "deb [signed-by=/usr/share/keyrings/r-project.gpg] https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" | sudo tee -a /etc/apt/sources.list.d/r-project.list
       sudo apt update
       sudo apt install --no-install-recommends r-base -y
+      sudo apt install unixodbc-dev -y
+      sudo Rscript -e 'install.packages("rodbc")'
       docker-compose up &
 ports:
   - port: 1433
@@ -24,3 +26,6 @@ vscode:
     - ms-azuretools.vscode-docker
     - cmoog.sqlnotebook
     - mtxr.sqltools-driver-mssql
+    - Mikhail-Arkhipov.r
+    - REditorSupport.r
+    - RDebugger.r-debugger
