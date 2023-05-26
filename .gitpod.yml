@@ -2,12 +2,11 @@ tasks:
   - init: |
       docker-compose pull
   - command: |
-      docker-compose up
+      docker-compose up &
       sudo apt-get update
       pip install --upgrade pip
-      sudo pip install pyodbc
-      sudo apt install unixodbc-dev -y
-      apt-get install odbcinst
+      pip install pyodbc
+      sudo apt-get install odbcinst
       sudo curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
       echo "deb [arch=amd64] https://packages.microsoft.com/ubuntu/21.10/prod impish main" | sudo tee /etc/apt/sources.list.d/mssql-release.list
       sudo apt update
