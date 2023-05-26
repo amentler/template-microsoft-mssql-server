@@ -12,3 +12,5 @@ ports:
 vscode:
   extensions:
     - ms-azuretools.vscode-docker
+    - cmoog.sqlnotebook
+    - ms-mssql.mssql
