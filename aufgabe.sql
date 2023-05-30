@@ -1,9 +1,20 @@
 /*markdown
+#Vorbereitung
+Nutze rechtsklick auf die datei aufgabe.sql -> open with, um diese als notebook zu starten!
+Konfiguriere jetzt noch die Notebook Einstellungen links im SQL Notebook Tab und erstelle eine Datenbank Verbindung.
+Display Name: local
+Database Driver: mssql
+Databse Host: localhost
+Database Port: 1433
+Databse User: sa
+Database Password: TeSt1234
+Database: master
+
+Aktiviere anschließend noch die angelegte Verbindung!
+
 # Einrichtung der Datenbank mit Tabellen
 Der folgende Code muss einmalig ausgeführt werden, um die Datenbank mit der Tabelle anzulegen.
 */
-
-CREATE DATABASE history_example;
 
 CREATE TABLE historic_table (
     ENTRY_ID int,
@@ -82,7 +93,7 @@ Für die `ENTRY_ID` 2 könnte das Ergebnis etwa so aussehen:
 |----------|----------------------------------|----------------|----------------------------|--------------|
 | 2        | Zweiter Eintrag                  | 555            | "2023-01-02T00:00:00.000Z" | null         |
 | 2        | Zweiter Eintrag Änderung         | 555            | "2023-01-04T00:00:00.000Z" | 0            |
-| 2        | Zweiter Eintrag weitere Änderung | 234            | "2023-01-07T00:00:00.000Z" | 321          |
+| 2        | Zweiter Eintrag weitere Änderung | 234            | "2023-01-07T00:00:00.000Z" | -321         |
 */
 
 -- todo
