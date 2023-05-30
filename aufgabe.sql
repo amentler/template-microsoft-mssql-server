@@ -1,17 +1,15 @@
 /*markdown
-#Vorbereitung
-Nutze rechtsklick auf die datei aufgabe.sql -> open with, um diese als notebook zu starten!
-Konfiguriere jetzt noch die Notebook Einstellungen links im SQL Notebook Tab und erstelle eine Datenbank Verbindung.
-Display Name: local
-Database Driver: mssql
-Databse Host: localhost
-Database Port: 1433
-Databse User: sa
-Database Password: TeSt1234
-Database: master
-
-Aktiviere anschließend noch die angelegte Verbindung!
-
+# Vorbereitung
+1. Konfiguriere die Notebook Einstellungen links im SQL Notebook Tab und erstelle eine Datenbank Verbindung mit folgenden Einstellungen:  
+Display Name: local  
+Database Driver: mssql  
+Databse Host: localhost  
+Database Port: 1433  
+Databse User: sa  
+Database Password: TeSt1234  
+Database: master  
+2. Aktiviere anschließend noch die angelegte Verbindung!
+3. Nutze rechtsklick auf diese Datei (aufgabe.sql) -> open with, um diese als notebook zu starten!
 # Einrichtung der Datenbank mit Tabellen
 Der folgende Code muss einmalig ausgeführt werden, um die Datenbank mit der Tabelle anzulegen.
 */
@@ -52,11 +50,11 @@ Für einige Einträge existieren verschiedene Versionen im Zeitverlauf.
 
 /*markdown
 # Aufgabe 1 - Aktuelle Einträge abfragen
-Ein häufiger Use-Case für die Verwendung von historischen Daten in einem Datawarehouse ist die Abfrage des aktuellen Datenbestandes ohne Historie.
+Ein häufiger Use-Case für die Verwendung historischer Daten in einem Datawarehouse ist die Abfrage des aktuellen Datenbestandes ohne Historie.
 Die erste Aufgabe besteht darin, aus der Liste aller Einträge der historischen Tabelle eine Auflistung der aktuellen Einträge auszugeben. Das Ergebnis soll für die gegebenen Daten bspw. wie in folgendem Beispiel aussehen:
 | ENTRY_ID | SOME_VALUE_STRING                | SOME_VALUE_INT | CREATED_ON                 |
 |----------|----------------------------------|----------------|----------------------------|
-| 1        | Wert                             | 2000           | "2023-01-06T00:00:00.000Z" |
+| 1        | Wert                             | 2000           | "2023-01-07T00:00:00.000Z" |
 | 2        | Zweiter Eintrag weitere Änderung | 234            | "2023-01-07T00:00:00.000Z" |
 | 3        | Dritter Eintrag                  | 9876           | "2023-01-01T00:00:00.000Z" |
 | 4        | Vierter Eintrag                  | 234            | "2023-01-01T00:00:00.000Z" |
