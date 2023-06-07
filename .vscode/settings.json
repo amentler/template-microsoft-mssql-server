@@ -14,7 +14,7 @@
             "group": "localhost",
             "username": "sa",
             "password": "TeSt1234",
-            "database": "msdb"
+            "database": "master"
         }
     ]
 }
