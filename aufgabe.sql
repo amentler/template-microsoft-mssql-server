@@ -2,12 +2,12 @@
 # Vorbereitung
 1. Konfiguriere die Notebook Einstellungen links im SQL Notebook Tab und erstelle eine Datenbank Verbindung mit folgenden Einstellungen:  
 Display Name: local  
-Database Driver: mssql  
+Database Driver: mssql
 Databse Host: localhost  
 Database Port: 1433  
 Databse User: sa  
 Database Password: TeSt1234  
-Database: master  
+Database Name: master  
 2. Aktiviere anschließend noch die angelegte Verbindung!
 3. Nutze rechtsklick auf diese Datei (aufgabe.sql) -> open with, um diese als notebook zu starten!
 # Einrichtung der Datenbank mit Tabellen
