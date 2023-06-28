@@ -48,7 +48,10 @@ select * from Produkte;
 */
 
 INSERT INTO Produkte (Name, Preis)
-VALUES ('Milch', 1.99)
+VALUES 
+('Milch', 1.99),
+('Schokolade', 1.29),
+('Spaghetti', 0.69)
 
 /*markdown
 # Korrektur der Produkte Tabelle
@@ -92,31 +95,23 @@ From Produkte
 
 
 begin transaction;
-
 select *
 into #tempTable
 from Produkte; 
-
 drop table produkte;
-
 CREATE Table Produkte (
     ID int IDENTITY(1,1),
     Name nvarchar(max),
     "Preis" DECIMAL(10,2),
     PRIMARY KEY (ID)
 );
-
 SET IDENTITY_INSERT Produkte ON;
-
 insert into Produkte(ID, Name, Preis)
 select ID, Name, Preis
 from #tempTable;
-
 SET IDENTITY_INSERT Produkte OFF;
-
 select * 
 from produkte;
-
 commit transaction;
 
 /*markdown
@@ -138,6 +133,29 @@ from Produkte
 # Anlegen geeigneter Datensätze
 */
 
+alter table Kaufhistorie 
+add ProduktId int
+
+insert into kaufhistorie(Datum, Anzahl, ProduktId) 
+values ('1.2.23', 5, 2)
+values ('1.1.23', 1, 1)
+values ('1.1.23', 1, 4)
+
+select *
+from kaufhistorie
+
+select *
+from kaufhistorie k full outer join produkte p on p.id = k.produktid
+
+
 /*markdown
 # Prüfen, obs erfolgreich war
+*/
+
+/*markdown
+# Spalte 'produktid' aus Tabelle Kaufhistorie umwandeln in Foreign Key
+*/
+
+/*markdown
+# Normalisierung bis 3. Normalform anschauen
 */
