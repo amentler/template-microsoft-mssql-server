@@ -18,7 +18,11 @@ Der folgende Code muss einmalig ausgeführt werden, um die Datenbank mit der Tab
 # Erzeugen einer neuen Datenbank
 */
 
-CREATE DATABASE EinkaufHistorie
+CREATE DATABASE EinkaufHistorie;
+
+
+USE EinkaufHistorie;
+
 
 /*markdown
 # Anlegen der Tabelle Produkte, Kaufhistorie
@@ -33,9 +37,6 @@ CREATE Table Kaufhistorie (
     Datum date,
     Anzahl int   
 );
-
-
-
 
 /*markdown
 # Prüfen des bisherigen Ergebnisses
@@ -60,9 +61,8 @@ VALUES
 ALTER TABLE Produkte 
 ALTER COLUMN "Preis" DECIMAL(10,2)
 
-
 /*markdown
-# Die ursprüngliche Präzision haben wir verloren. Diese stellen wir nun wieder mit dem Update Befehl her und ändern dadurch den bestehenden Preis der Milch zurück auf den präzisen Wert von Preis = 1,99€
+Die ursprüngliche Präzision haben wir verloren. Diese stellen wir nun wieder mit dem Update Befehl her und ändern dadurch den bestehenden Preis der Milch zurück auf den präzisen Wert von Preis = 1,99€
 */
 
 UPDATE Produkte
@@ -93,7 +93,6 @@ From Produkte
 # Neu Anlegen der Tabelle Produkte mit den Spalten in der richtigen Reihenfolge
 */
 
-
 begin transaction;
 select *
 into #tempTable
@@ -118,7 +117,6 @@ commit transaction;
 # Prüfen, ob die TempTable auch weg ist
 */
 
-
 select *
 from #tempTable
 
@@ -137,16 +135,16 @@ alter table Kaufhistorie
 add ProduktId int
 
 insert into kaufhistorie(Datum, Anzahl, ProduktId) 
-values ('1.2.23', 5, 2)
-values ('1.1.23', 1, 1)
-values ('1.1.23', 1, 4)
+values 
+('1.2.23', 5, 2),
+('1.1.23', 1, 1),
+('1.1.23', 1, 4);
 
 select *
 from kaufhistorie
 
 select *
 from kaufhistorie k full outer join produkte p on p.id = k.produktid
-
 
 /*markdown
 # Prüfen, obs erfolgreich war
