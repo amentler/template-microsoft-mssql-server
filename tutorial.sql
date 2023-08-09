@@ -20,6 +20,7 @@ Der folgende Code muss einmalig ausgeführt werden, um die Datenbank mit der Tab
 
 CREATE DATABASE EinkaufHistorie;
 
+Go
 
 USE EinkaufHistorie;
 
