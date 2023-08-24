@@ -140,19 +140,32 @@ values
 ('1.1.23', 1, 1),
 ('1.1.23', 1, 4);
 
+/*markdown
+# Prüfen, obs erfolgreich war
+*/
+
 select *
 from kaufhistorie
 
 select *
 from kaufhistorie k full outer join produkte p on p.id = k.produktid
 
-/*markdown
-# Prüfen, obs erfolgreich war
-*/
 
 /*markdown
 # Spalte 'produktid' aus Tabelle Kaufhistorie umwandeln in Foreign Key
 */
+delete from Kaufhistorie;
+
+ALTER TABLE Kaufhistorie ADD CONSTRAINT
+FK_kaufhistorie_produkte FOREIGN KEY
+(
+ProduktId
+) REFERENCES Produkte
+(
+ID
+) ON UPDATE  NO ACTION
+ ON DELETE  CASCADE;
+
 
 /*markdown
 # Normalisierung bis 3. Normalform anschauen
