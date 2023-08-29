@@ -54,10 +54,10 @@ Ein häufiger Use-Case für die Verwendung historischer Daten in einem Datawareh
 Die erste Aufgabe besteht darin, aus der Liste aller Einträge der historischen Tabelle eine Auflistung der aktuellen Einträge auszugeben. Das Ergebnis soll für die gegebenen Daten bspw. wie in folgendem Beispiel aussehen:
 | ENTRY_ID | SOME_VALUE_STRING                | SOME_VALUE_INT | CREATED_ON                 |
 |----------|----------------------------------|----------------|----------------------------|
-| 1        | Wert                             | 2000           | "2023-01-07T00:00:00.000Z" |
-| 2        | Zweiter Eintrag weitere Änderung | 234            | "2023-01-07T00:00:00.000Z" |
+| 1        | Wert                             |   11           | "2023-01-07T00:00:00.000Z" |
+| 2        | Zweiter Eintrag weitere Änderung |  234           | "2023-01-07T00:00:00.000Z" |
 | 3        | Dritter Eintrag                  | 9876           | "2023-01-01T00:00:00.000Z" |
-| 4        | Vierter Eintrag                  | 234            | "2023-01-01T00:00:00.000Z" |
+| 4        | Vierter Eintrag                  |  234           | "2023-01-01T00:00:00.000Z" |
 */
 
 -- todo
