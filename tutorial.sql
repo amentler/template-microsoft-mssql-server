@@ -165,9 +165,43 @@ ProduktId
 (
 ID
 ) ON UPDATE  NO ACTION
- ON DELETE  CASCADE;
+ ON DELETE CASCADE;
 
+/*markdown
+# Testen, ob die Delete Kaskade korrekt funktioniert (funktioniert in sql notebook nicht richtig)
+*/
+
+begin transaction
+
+delete from Produkte
+
+DBCC CHECKIDENT ('produkte', RESEED, 0)
+GO
+
+insert into produkte(name, preis)
+values ('test produkt 1', 1.99),
+       ('test produkt 2', 2.99);
+go
+
+select * from produkte
+
+insert into Kaufhistorie(Datum, Anzahl, ProduktId)
+values ('2023-08-08', 5, 1), ('2023-08-08', 3, 2)
+
+select * from Kaufhistorie;
+
+
+delete from produkte where ID = 1;
+
+select * from kaufhistorie;
+rollback transaction
 
 /*markdown
 # Normalisierung bis 3. Normalform anschauen
+*/
+
+
+
+/*markdown
+# Indizes anschauen und optimieren
 */
