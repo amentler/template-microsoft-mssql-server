@@ -186,7 +186,7 @@ go
 select * from produkte
 
 insert into Kaufhistorie(Datum, Anzahl, ProduktId)
-values ('2023-08-08', 5, 1), ('2023-08-08', 3, 2)
+values ('2023-08-08', 5, 0), ('2023-08-08', 3, 1)
 
 select * from Kaufhistorie;
 
