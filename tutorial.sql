@@ -205,3 +205,71 @@ rollback transaction
 /*markdown
 # Indizes anschauen und optimieren
 */
+
+
+/*markdown
+# Spieldaten
+*/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[vAdresseintrag](
+	[objid] [bigint] NOT NULL,
+	[modified] [datetime] NOT NULL,
+	[typ] [varchar](255) NOT NULL,
+	[firma_name] [varchar](255) NULL,
+	[land] [varchar](255) NULL,
+	[betreuer_id] [bigint] NULL,
+	[Umsatz] [decimal](18, 2) NULL,
+ CONSTRAINT [PK__vAdresse__FCBB05AA024E9107] PRIMARY KEY CLUSTERED 
+(
+	[objid] ASC,
+	[modified] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (78727, CAST(N'2020-02-04T10:59:15.000' AS DateTime), N'Firma', N'Blubbhaus AG', N'Deutschland', 17590, CAST(20.00 AS Decimal(18, 2)))
+GO
+INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (78727, CAST(N'2020-08-28T18:02:48.000' AS DateTime), N'Firma', N'Blubbhaus AG', N'Deutschland', 17590, CAST(40.00 AS Decimal(18, 2)))
+GO
+INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (78727, CAST(N'2021-04-28T10:18:00.000' AS DateTime), N'Firma', N'Blubbhaus AG', N'Deutschland', 17590, CAST(80.00 AS Decimal(18, 2)))
+GO
+INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (78727, CAST(N'2021-07-21T12:45:10.000' AS DateTime), N'Firma', N'Blubbhaus AG', N'Deutschland', 17590, CAST(100.00 AS Decimal(18, 2)))
+GO
+INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (78727, CAST(N'2023-01-23T15:57:18.000' AS DateTime), N'Firma', N'Blubbhaus AG', N'Deutschland', 17590, CAST(200.00 AS Decimal(18, 2)))
+GO
+INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (942539, CAST(N'2022-02-17T21:00:33.000' AS DateTime), N'Firma', N'Letraxis GmbH', N'Österreich', 922234, CAST(200.00 AS Decimal(18, 2)))
+GO
+INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (942550, CAST(N'2022-02-17T21:00:33.000' AS DateTime), N'Firma', N'Moraxas e.V.', N'Österreich', 922234, CAST(20.00 AS Decimal(18, 2)))
+GO
+INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (942561, CAST(N'2022-02-17T21:00:33.000' AS DateTime), N'Firma', N'Suquinix AG', N'Schweiz', 922234, CAST(300.00 AS Decimal(18, 2)))
+GO
+INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (942572, CAST(N'2022-02-17T21:00:33.000' AS DateTime), N'Firma', N'Bonux GmbH', N'Schweiz', 922234, CAST(400.00 AS Decimal(18, 2)))
+GO
+INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (942726, CAST(N'2022-02-17T21:00:33.000' AS DateTime), N'Firma', N'Detra GmbH', N'Polen', 922234, CAST(100.00 AS Decimal(18, 2)))
+GO
+INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (943584, CAST(N'2022-02-17T21:00:33.000' AS DateTime), N'Firma', N'Samux AG', N'Österreich', 922234, CAST(50.00 AS Decimal(18, 2)))
+GO
+INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (943595, CAST(N'2021-10-26T13:58:35.000' AS DateTime), N'Kontakt', NULL, N'Deutschland', 63818, NULL)
+GO
+INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (943595, CAST(N'2022-02-17T21:00:33.000' AS DateTime), N'Kontakt', N'Gomux e.V.', N'Frankreich', 922234, NULL)
+GO
+
+
+/*markdown
+# Aggregates
+*/
+
+select MIN(modified) from vAdresseintrag
+
+select COUNT(1) from vAdresseintrag where typ='Firma'
+
+select firma_name, COUNT(objid) from vAdresseintrag group by firma_name
+
+select land from vAdresseintrag group by land having COUNT(land)>1
+
+
+/*markdown
+# Window Function
+*/
