@@ -251,7 +251,7 @@ INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land],
 GO
 INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (943584, CAST(N'2022-02-17T21:00:33.000' AS DateTime), N'Firma', N'Samux AG', N'Österreich', 922234, CAST(50.00 AS Decimal(18, 2)))
 GO
-INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (943595, CAST(N'2021-10-26T13:58:35.000' AS DateTime), N'Kontakt', NULL, N'Deutschland', 63818, NULL)
+INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (943595, CAST(N'2021-10-26T13:58:35.000' AS DateTime), N'Kontakt', N'Brezel GmbH', N'Deutschland', 63818, NULL)
 GO
 INSERT [dbo].[vAdresseintrag] ([objid], [modified], [typ], [firma_name], [land], [betreuer_id], [Umsatz]) VALUES (943595, CAST(N'2022-02-17T21:00:33.000' AS DateTime), N'Kontakt', N'Gomux e.V.', N'Frankreich', 922234, NULL)
 GO
@@ -271,5 +271,10 @@ select land from vAdresseintrag group by land having COUNT(land)>1
 
 
 /*markdown
-# Window Function
+# Window Functions
 */
+SELECT *, ROW_NUMBER() over (PARTITION BY objid ORDER BY modified DESC) as counter
+FROM vAdresseintrag
+
+SELECT *, lag(modified) over (PARTITION BY objid ORDER BY modified DESC) as lagmodified
+FROM vAdresseintrag
