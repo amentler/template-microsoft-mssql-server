@@ -134,7 +134,7 @@ from Produkte
 
 alter table Kaufhistorie 
 add ProduktId int
-
+go
 insert into kaufhistorie(Datum, Anzahl, ProduktId) 
 values 
 ('1.2.23', 5, 2),
