@@ -1,0 +1,13 @@
+FROM codercom/code-server:4.20.0-ubuntu
+
+RUN code-server --install-extension mtxr.sqltools-driver-mssql && \
+	code-server --install-extension mtxr.sqltools 
+		
+COPY ./config/config.yaml /home/coder/.config/code-server/config.yaml
+COPY ./config/coder.json /home/coder/.local/share/code-server/coder.json
+COPY ./config/settings.json /home/coder/.local/share/code-server/User/settings.json
+COPY ./config/keybindings.json /home/coder/.local/share/code-server/User/keybindings.json
+
+USER root
+RUN chmod 777 /home/coder/.config/code-server/config.yaml /home/coder/.local/share/code-server/coder.json /home/coder/.local/share/code-server/User/keybindings.json /home/coder/.local/share/code-server/User/settings.json
+USER coder

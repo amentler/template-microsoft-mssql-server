@@ -1,0 +1,20 @@
+{
+    "sqltools.autoConnectTo": "mssql",
+    "sqltools.connections": [
+        {
+            "mssqlOptions": {
+                "appName": "SQLTools",
+                "useUTC": true,
+                "encrypt": true
+            },
+            "previewLimit": 50,
+            "server": "mssql",
+            "port": 1433,
+            "driver": "MSSQL",
+            "name": "mssql",
+            "database": "master",
+            "username": "sa",
+            "password": "1!Iletmein"
+        }
+    ]
+}

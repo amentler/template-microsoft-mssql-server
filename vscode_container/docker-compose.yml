@@ -1,0 +1,28 @@
+version: "3.8"
+
+
+networks:
+  code-server:
+    driver: bridge
+
+services:
+  code-server:
+    build: .
+    container_name: code-server
+    environment:
+      - DOCKER_USER=admin
+      - PASSWORD=a
+    volumes:
+      - ./workspace:/workspace
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    networks:
+    - code-server
+  mssql:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      SA_PASSWORD: "1!Iletmein"
+      ACCEPT_EULA: "Y"
+    networks:
+      - code-server
